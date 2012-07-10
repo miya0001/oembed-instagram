@@ -1,0 +1,13 @@
+.oembed-instagram
+{
+    position: relative;
+    margin-bottom: 1em;
+    max-width: 100%;
+    height: auto;
+border: 1px solid #000000;
+}
+
+.oembed-instagram-caption
+{
+    position: absolute;
+}
