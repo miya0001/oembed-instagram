@@ -1,6 +1,6 @@
 === oEmbed Instagram ===
 Contributors: miyauchi
-Donate link: https://www.paypal.com/jp/cgi-bin/webscr?cmd=_flow&SESSION=V9ggRQYdPscPXHHzwIMAG2o2RavMQO8KLdFTxHm3dzuX2gDiDHw-k1ZBw5C&dispatch=50a222a57771920b6a3d7b606239e4d529b525e0b7e69bf0224adecfb0124e9b61f737ba21b0819838956b846fa597911f234fb937456ea7
+Donate link: http://wpist.me/
 Tags: url, link, oembed, visual editor, post, instagram
 Requires at least: 3.4
 Tested up to: 3.4.1
