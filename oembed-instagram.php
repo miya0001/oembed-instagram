@@ -39,6 +39,9 @@ public function oembed_handler($m, $attr, $url, $rattr)
         $data = $meta[0];
     } else {
         $data = $this->get_from_api($url);
+        if (!$data) {
+            return ; // nothing to do on error
+        }
     }
 
     $title = $data->title;
@@ -47,15 +50,14 @@ public function oembed_handler($m, $attr, $url, $rattr)
     $width = $data->width;
     $height = $data->height;
 
-    return sprintf(
-        $this->get_template(),
-        esc_url($large),
-        esc_attr($title),
-        esc_url($image),
-        intval($width),
-        intval($height),
-        esc_html($title)
-    );
+    $html = $this->get_template();
+    $html = str_replace('%title%', esc_attr($title), $html);
+    $html = str_replace('%large%', esc_url($large), $html);
+    $html = str_replace('%image%', esc_url($image), $html);
+    $html = str_replace('%width%', intval($width), $html);
+    $html = str_replace('%height%', intval($height), $html);
+
+    return $html;
 }
 
 private function get_from_api($url)
@@ -86,12 +88,12 @@ private function get_template()
 {
     $html =<<<EOL
 <div class="wp-caption alignleft oembed-instagram" style="padding:10px;">
-    <a href="%s"><img class="size-full" title="%s" src="%s" alt="" width="%d" height="%d" /></a>
-    <p class="wp-caption-text">%s</p>
+    <a href="%large%"><img class="size-full" title="%title%" src="%image%" alt="" width="%width%" height="%height%" /></a>
+    <p class="wp-caption-text">%title%</p>
 </div>
 EOL;
 
-    return $html;
+    return apply_filters("oembed-instagram-template", $html);
 }
 
 }
