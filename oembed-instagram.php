@@ -49,7 +49,6 @@ public function oembed_handler($m, $attr, $url, $rattr)
 
     return sprintf(
         $this->get_template(),
-        intval($width)+10,
         esc_url($large),
         esc_attr($title),
         esc_url($image),
@@ -86,7 +85,7 @@ private function get_from_api($url)
 private function get_template()
 {
     $html =<<<EOL
-<div class="wp-caption alignleft oembed-instagram" style="width:%dpx">
+<div class="wp-caption alignleft oembed-instagram" style="padding:10px;">
     <a href="%s"><img class="size-full" title="%s" src="%s" alt="" width="%d" height="%d" /></a>
     <p class="wp-caption-text">%s</p>
 </div>
