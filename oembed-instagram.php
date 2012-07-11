@@ -49,13 +49,13 @@ public function oembed_handler($m, $attr, $url, $rattr)
 
     return sprintf(
         $this->get_template(),
-        $width+10,
-        $large,
-        $title,
-        $image,
-        $width,
-        $height,
-        $title
+        intval($width)+10,
+        esc_url($large),
+        esc_attr($title),
+        esc_url($image),
+        intval($width),
+        intval($height),
+        esc_html($title)
     );
 }
 
@@ -64,8 +64,8 @@ private function get_from_api($url)
     global $content_width;
 
     $max_width = 0;
-    if (isset($content_width)) {
-        $max_width = $content_width;
+    if (isset($content_width) && intval($content_width)) {
+        $max_width = intval($content_width);
     }
 
     $api = sprintf(
