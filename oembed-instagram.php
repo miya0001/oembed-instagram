@@ -15,6 +15,7 @@ class oEmbedInstagram {
 private $api = "http://api.instagram.com/oembed?url=%s&maxwidth=%d";
 private $large_img = "%s/media/?size=l";
 private $prefix = '_instagram_';
+private $max_width = 306;
 
 function __construct()
 {
@@ -62,17 +63,10 @@ public function oembed_handler($m, $attr, $url, $rattr)
 
 private function get_from_api($url)
 {
-    global $content_width;
-
-    $max_width = 0;
-    if (isset($content_width) && intval($content_width)) {
-        $max_width = intval($content_width);
-    }
-
     $api = sprintf(
         $this->api,
         $url,
-        $max_width
+        apply_filters("oembed-instagram-maxwidth", $this->max_width)
     );
 
     $res = wp_remote_get($api);
@@ -87,10 +81,11 @@ private function get_from_api($url)
 private function get_template()
 {
     $html =<<<EOL
+[caption align="alignleft" width="%width%"]
 <div class="wp-caption alignleft oembed-instagram" style="padding:10px;">
     <a href="%large%"><img class="size-full" title="%title%" src="%image%" alt="" width="%width%" height="%height%" /></a>
-    <p class="wp-caption-text">%title%</p>
-</div>
+%title%
+[/caption]
 EOL;
 
     return apply_filters("oembed-instagram-template", $html);

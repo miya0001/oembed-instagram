@@ -14,6 +14,7 @@ Embed your photo from instagram into WordPress easily.
 
 * Embed your photo from instagram into WordPress easily.
 * You simply paste URL of your instagram photo.
+* HTML of this plugin is `caption` shortcode.
 
 = Summary =
 
