@@ -81,8 +81,8 @@ private function get_from_api($url)
 private function get_template()
 {
     $html =<<<EOL
-[caption align="alignleft" width="%width%"]
-<div class="wp-caption alignleft oembed-instagram" style="padding:10px;">
+[caption width="%width%"]
+<div class="wp-caption oembed-instagram" style="padding:10px;">
     <a href="%large%"><img class="size-full" title="%title%" src="%image%" alt="" width="%width%" height="%height%" /></a>
 %title%
 [/caption]
