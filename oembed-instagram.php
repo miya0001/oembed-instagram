@@ -4,7 +4,7 @@ Plugin Name: oEmbed Instagram
 Plugin URI: http://wpist.me/wp/oembed-instagram
 Description: Embed source from instagram.
 Author: Takayuki Miyauchi
-Version: 1.0.0
+Version: 1.2.0
 Author URI: http://wpist.me/
 */
 
@@ -46,13 +46,14 @@ public function oembed_handler($m, $attr, $url, $rattr)
     }
 
     $title = $data->title;
+    $title = str_replace(array("\r\n", "\r", "\n"), "", $title);
     $image = $data->url;
     $large = sprintf($this->large_img, $url);
     $width = $data->width;
     $height = $data->height;
 
     $html = $this->get_template();
-    $html = str_replace('%title%', esc_attr($title), $html);
+    $html = str_replace('%title%', esc_html($title), $html);
     $html = str_replace('%large%', esc_url($large), $html);
     $html = str_replace('%image%', esc_url($image), $html);
     $html = str_replace('%width%', intval($width), $html);
@@ -81,11 +82,11 @@ private function get_from_api($url)
 private function get_template()
 {
     $html =<<<EOL
-[caption width="%width%"]
-<div class="wp-caption oembed-instagram" style="padding:10px;">
-    <a href="%large%"><img class="size-full" title="%title%" src="%image%" alt="" width="%width%" height="%height%" /></a>
-%title%
+<div class="oembed-instagram">
+[caption width="%width%" caption="%title%"]
+<a href="%large%"><img class="size-full" src="%image%" alt="" width="%width%" height="%height%" /></a>
 [/caption]
+</div><!--.oembed-instagram-->
 EOL;
 
     return apply_filters("oembed-instagram-template", $html);
