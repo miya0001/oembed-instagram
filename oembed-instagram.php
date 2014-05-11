@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: oEmbed Instagram
-Plugin URI: http://wpist.me/wp/oembed-instagram
-Description: Embed source from instagram.
+Plugin URI: https://github.com/miya0001/oembed-instagram
+Description: Embed image and video from instagram.
 Author: Takayuki Miyauchi
 Version: 1.5.0
 Author URI: http://wpist.me/
