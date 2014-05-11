@@ -4,7 +4,7 @@ Plugin Name: oEmbed Instagram
 Plugin URI: https://github.com/miya0001/oembed-instagram
 Description: Embed image and video from instagram.
 Author: Takayuki Miyauchi
-Version: 1.5.0
+Version: 1.5.1
 Author URI: http://wpist.me/
 */
 
@@ -36,7 +36,7 @@ class oEmbedInstagram {
 			'oembed-instagram',
 			plugins_url( 'oembed-instagram.js', __FILE__ ),
 			array( 'jquery' ),
-			'1.0',
+			'1.5.1',
 			true
 		);
 	}

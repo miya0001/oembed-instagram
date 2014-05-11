@@ -1,10 +1,10 @@
 === oEmbed Instagram ===
 Contributors: miyauchi
 Donate link: http://wpist.me/
-Tags: url, link, oembed, visual editor, post, instagram
+Tags: responsive, url, link, oembed, visual editor, post, instagram
 Requires at least: 3.4
 Tested up to: 3.9
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,7 @@ Embed your photo from instagram into WordPress easily.
 
 == Description ==
 
+* Responsive!
 * Embed your photo from instagram into WordPress easily.
 * You simply paste URL of your instagram photo.
 * HTML of this plugin is `caption` shortcode.
@@ -38,6 +39,10 @@ PHP5 is required!
 
 
 == Changelog ==
+
+= 1.5.0 =
+
+* Fix for responsive.
 
 = 1.4.0 =
 * Add movie support.
