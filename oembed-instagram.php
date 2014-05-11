@@ -23,7 +23,7 @@ class oEmbedInstagram {
 	public function wp_head(  )
 	{
 		$css = '<style type="text/css">';
-		$css .= '.oembed-instagram{box-shadow: 0 0 3px #ccc; padding: 10px; margin: 1em 0;}';
+		$css .= '.oembed-instagram{box-shadow: 0 0 3px #ccc; margin: 1em 0; background-color: #ffffff;}';
 		$css .= '.oembed-instagram iframe{display: block; margin: 0 auto; max-width: 100%; box-sizing: border-box;}';
 		$css .= '</style>'."\n";
 
@@ -34,7 +34,7 @@ class oEmbedInstagram {
 	{
 		wp_enqueue_script(
 			'oembed-instagram',
-			plugins_url( 'oembed-instagram.min.js', __FILE__ ),
+			plugins_url( 'oembed-instagram.js', __FILE__ ),
 			array( 'jquery' ),
 			'1.0',
 			true
