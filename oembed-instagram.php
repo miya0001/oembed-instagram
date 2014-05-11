@@ -4,7 +4,7 @@ Plugin Name: oEmbed Instagram
 Plugin URI: https://github.com/miya0001/oembed-instagram
 Description: Embed image and video from instagram.
 Author: Takayuki Miyauchi
-Version: 1.5.1
+Version: 1.5.2
 Author URI: http://wpist.me/
 */
 
@@ -23,7 +23,7 @@ class oEmbedInstagram {
 	public function wp_head(  )
 	{
 		$css = '<style type="text/css">';
-		$css .= '.oembed-instagram{box-shadow: 0 0 3px #ccc; margin: 1em 0; background-color: #ffffff;}';
+		$css .= '.oembed-instagram{box-shadow: 1px 1px 3px #eeeeee;  background-color: #ffffff; border: 1px solid #dedede; margin: 1em 5px;}';
 		$css .= '.oembed-instagram iframe{display: block; margin: 0 auto; max-width: 100%; box-sizing: border-box;}';
 		$css .= '</style>'."\n";
 
