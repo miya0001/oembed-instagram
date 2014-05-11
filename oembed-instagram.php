@@ -4,37 +4,61 @@ Plugin Name: oEmbed Instagram
 Plugin URI: http://wpist.me/wp/oembed-instagram
 Description: Embed source from instagram.
 Author: Takayuki Miyauchi
-Version: 1.4.0
+Version: 1.5.0
 Author URI: http://wpist.me/
 */
 
-new oEmbedInstagram();
+$oembed_instagram = new oEmbedInstagram();
+$oembed_instagram->register();
 
 class oEmbedInstagram {
 
-function __construct()
-{
-    add_action('plugins_loaded', array(&$this, 'plugins_loaded'));
-}
+	function register()
+	{
+		add_action( 'plugins_loaded', array(  $this, 'plugins_loaded' ) );
+		add_action( 'wp_enqueue_scripts', array(  $this, 'wp_enqueue_scripts' ) );
+		add_action( 'wp_head', array( $this, 'wp_head' ) );
+	}
 
-public function plugins_loaded()
-{
-    wp_embed_register_handler(
-        'instagram',
-        '#http://instagram.com/.*/?$#i',
-        array($this, 'oembed_handler')
-    );
-}
+	public function wp_head(  )
+	{
+		$css = '<style type="text/css">';
+		$css .= '.oembed-instagram{box-shadow: 0 0 3px #ccc; padding: 10px; margin: 1em 0;}';
+		$css .= '.oembed-instagram iframe{display: block; margin: 0 auto; max-width: 100%; box-sizing: border-box;}';
+		$css .= '</style>'."\n";
 
-public function oembed_handler($m, $attr, $url, $rattr)
-{
-    $html = '<iframe src="%s/embed" height="710" width="612" frameborder="0" scrolling="no"></iframe>';
+		echo apply_filters( 'oembed_instagram_style', $css);
+	}
 
-    $res = parse_url($m[0]);
-    $uri = untrailingslashit('//'.$res['host'].$res['path']);
+	public function wp_enqueue_scripts()
+	{
+		wp_enqueue_script(
+			'oembed-instagram',
+			plugins_url( 'oembed-instagram.min.js', __FILE__ ),
+			array( 'jquery' ),
+			'1.0',
+			true
+		);
+	}
 
-    return sprintf($html, $uri);
-}
+	public function plugins_loaded()
+	{
+		wp_embed_register_handler(
+			'instagram',
+			'#http://instagram.com/.*/?$#i',
+			array( $this, 'oembed_handler' )
+		 );
+	}
+
+	public function oembed_handler( $m, $attr, $url, $rattr )
+	{
+		$html = '<div class="oembed-instagram"><iframe src="%s/embed" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>';
+
+		$res = parse_url( $m[0] );
+		$uri = untrailingslashit( '//'.$res['host'].$res['path'] );
+
+		return sprintf( $html, $uri );
+	}
 
 }
 
