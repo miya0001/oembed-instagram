@@ -45,7 +45,7 @@ class oEmbedInstagram {
 	{
 		wp_embed_register_handler(
 			'instagram',
-			'#http://instagram.com/.*/?$#i',
+			'#http(?:s?)://instagram.com/.*/?$#i',
 			array( $this, 'oembed_handler' )
 		 );
 	}
