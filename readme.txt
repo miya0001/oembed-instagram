@@ -14,12 +14,12 @@ Embed your photo from instagram into WordPress easily.
 
 * Responsive!
 * Embed your photo from instagram into WordPress easily.
-* You simply paste URL of your instagram photo.
+* You simply have to paste the URL of your instagram photo.
 * HTML of this plugin is `caption` shortcode.
 
 = Summary =
 
-You can embed your photo from instagram simply paste URL like below.
+You can embed your photo from instagram simply by pasting the URL like below.
 
 * http://instagram.com/p/MtBjw1iIx4/
 
@@ -33,9 +33,9 @@ PHP5 is required!
 
 == Installation ==
 
-* A plug-in installation screen is displayed on the WordPress admin panel.
+* A plugin installation screen is displayed on the WordPress admin panel.
 * It installs it in `wp-content/plugins`.
-* The plug-in is made effective.
+* The plugin is made effective.
 
 
 == Changelog ==
@@ -53,8 +53,8 @@ PHP5 is required!
 
 == Credits ==
 
-This plug-in is not guaranteed though the user of WordPress can freely use this plug-in free of charge regardless of the purpose.
-The author must acknowledge the thing that the operation guarantee and the support in this plug-in use are not done at all beforehand.
+This plugin is not guaranteed though the user of WordPress can freely use this plugin free of charge regardless of the purpose.
+The author must acknowledge the thing that the operation guarantee and the support in this plugin use are not done at all beforehand.
 
 == Contact ==
 
