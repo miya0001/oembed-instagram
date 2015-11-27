@@ -1,4 +1,4 @@
-# Simple Map
+# oEmbed Instagram
 
 [![Build Status](https://travis-ci.org/miya0001/oembed-instagram.svg)](https://travis-ci.org/miya0001/oembed-instagram)
 [![](https://img.shields.io/wordpress/plugin/dt/oembed-instagram.svg)](https://wordpress.org/plugins/oembed-instagram/)
