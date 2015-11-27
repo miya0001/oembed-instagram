@@ -1,0 +1,30 @@
+language: php
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+php:
+  - 5.3
+  - 5.6
+
+env:
+  matrix:
+    - WP_VERSION=latest WP_MULTISITE=0
+  global:
+    - SVN_REPO: https://plugins.svn.wordpress.org/oembed-instagram/
+    - GH_REF: https://github.com/miya0001/oembed-instagram.git
+    - secure: "pNsnNiLMV+gfAU8kdUtXZX1s0HqQNm0i45rQP+N0LpfI93/3pXgEL3XAdBGP10zmbESshHdopen8q1uz+XJmlxLQcZwUq8m0TyQpl3vMq2Ch2+Lvgd/6YCcb4VvwbIq4mSwor4Fbrm2OzPedI1ijfSS175GH9ErCSKG0KGx/6Xw="
+
+matrix:
+  include:
+    - php: 5.6
+      env: WP_VERSION=latest WP_MULTISITE=0 WP_PULUGIN_DEPLOY=1
+
+before_script:
+  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+
+script: phpunit
+
+after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash

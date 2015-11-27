@@ -4,7 +4,7 @@ Plugin Name: oEmbed Instagram
 Plugin URI: https://github.com/miya0001/oembed-instagram
 Description: Embed image and video from instagram.
 Author: Takayuki Miyauchi
-Version: 1.6.0
+Version: 1.7.0
 Author URI: http://wpist.me/
 */
 
@@ -23,7 +23,7 @@ class oEmbedInstagram {
 	public function wp_head(  )
 	{
 		$css = '<style type="text/css">';
-		$css .= '.oembed-instagram{box-shadow: 1px 1px 3px #eeeeee;  background-color: #ffffff; border: 1px solid #dedede; margin: 1em 5px;}';
+		$css .= '.oembed-instagram{box-shadow: 1px 1px 3px #efefef;  background-color: #ffffff; border: 1px solid #f5f5f5; margin: 1em 5px; padding: 8px;}';
 		$css .= '.oembed-instagram iframe{display: block; margin: 0 auto; max-width: 100%; box-sizing: border-box;}';
 		$css .= '</style>'."\n";
 
@@ -45,7 +45,7 @@ class oEmbedInstagram {
 	{
 		wp_embed_register_handler(
 			'instagram',
-			'#http(?:s?)://instagram.com/.*/?$#i',
+			'#http(?:s?)://(www.)?instagram.com/.*/?$#i',
 			array( $this, 'oembed_handler' )
 		 );
 	}
@@ -55,7 +55,7 @@ class oEmbedInstagram {
 		$html = '<div class="oembed-instagram"><iframe src="%s/embed" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>';
 
 		$res = parse_url( $m[0] );
-		$uri = untrailingslashit( '//'.$res['host'].$res['path'] );
+		$uri = untrailingslashit( '//' . $res['host'] . $res['path'] );
 
 		return sprintf( $html, $uri );
 	}

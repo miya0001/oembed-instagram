@@ -1,16 +1,16 @@
-(function($){
+( function( $ ){
     var responsive = function(){
-        $('.oembed-instagram iframe').each(function(){
-            var vertical = 114;
+        $( '.oembed-instagram iframe' ).each( function() {
+            var vertical = 105;
             var horizontal = 16;
-            var height = $(this).width() - horizontal + vertical;
-            $(this).css('height', height);
+            var height = $( this ).width() - horizontal + vertical;
+            $( this ).css( 'height', height);
         });
     }
 
-    $(window).resize(function(){
+    $( window ).resize( function() {
         responsive();
     });
 
     responsive();
-})(jQuery);
+} )( jQuery );

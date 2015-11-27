@@ -3,8 +3,8 @@ Contributors: miyauchi
 Donate link: http://wpist.me/
 Tags: responsive, url, link, oembed, visual editor, post, instagram
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 1.6.0
+Tested up to: 4.4
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,8 +40,10 @@ PHP5 is required!
 
 == Changelog ==
 
-= 1.5.0 =
+= 1.7.0 =
+* Fix problem for instagram's url has beed changed
 
+= 1.5.0 =
 * Fix for responsive.
 
 = 1.4.0 =
